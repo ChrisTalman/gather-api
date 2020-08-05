@@ -13,6 +13,7 @@ declare module 'gather-api'
 		constructor({accessToken, secret, url}: {accessToken: Client['accessToken'], secret?: Client['secret'], url?: Client['url']});
 		verifySignature({signature, requestBody}: {signature: string, requestBody: string | object}): boolean;
 		generateRequestBodySignature({requestBody}: {requestBody: string | object}): string;
+		public readonly guilds: Guilds;
 	}
 
 	// Resource
