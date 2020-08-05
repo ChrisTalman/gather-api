@@ -17,14 +17,10 @@ declare module 'gather-api'
 	}
 
 	// Resource
-	class Resource
-	{
-		public readonly _client: Client;
-		constructor({client}: {client: Client});
-	}
+	class Resource {}
 
 	// Guilds
-	export class Guilds extends Resource
+	class Guilds extends Resource
 	{
 		public members: GuildsMembers;
 	}
