@@ -67,6 +67,7 @@ declare module 'gather-api'
 	export type ApiErrorPayload =
 		ApiErrorNotFound |
 		ApiErrorUnauthenticated |
+		ApiErrorUnauthorised |
 		ApiErrorEntityConflict
 	;
 	export interface ApiErrorNotFound
@@ -79,6 +80,11 @@ declare module 'gather-api'
 	{
 		code: 'unauthenticated';
 		reason?: 'tokenNotFound' | 'gatherWebhookSignatureInvalid';
+	}
+	export interface ApiErrorUnauthorised
+	{
+		code: 'unauthorised';
+		reason?: 'notOwner' | 'permission';
 	}
 	export interface ApiErrorEntityConflict
 	{
