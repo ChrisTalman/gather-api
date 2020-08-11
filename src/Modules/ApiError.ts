@@ -15,7 +15,7 @@ export class ApiError extends Error
 	public readonly payload: ApiErrorPayload;
 	constructor({payload}: {payload: ApiErrorPayload})
 	{
-		const message = `Gather Error:\n${payload}`;
+		const message = `Gather Error:\n${JSON.stringify(payload)}`;
 		super(message);
 		this.payload = payload;
 	};
