@@ -29,7 +29,7 @@ export class Client
 		this.domain = new Domain
 		(
 			{
-				path: url,
+				path: this.url,
 				auth: () => `Bearer ${accessToken}`,
 				queryBody: 'body',
 				debug: requestDebug
