@@ -10,6 +10,7 @@ import { ScheduledRequest } from './ScheduledRequest';
 import { Guilds } from './Methods/Guilds';
 
 // Types
+import { DefinitionDebug } from '@chris-talman/request';
 import { RequestOptions } from 'src/Modules';
 
 export class Client
@@ -18,7 +19,9 @@ export class Client
 	public readonly secret?: string;
 	public readonly url: string = 'https://api.gather.sh';
 	public readonly domain: Domain;
-	constructor({accessToken, secret, url}: {accessToken: Client['accessToken'], secret?: Client['secret'], url?: Client['url']})
+	/** Debug options to pass to the request module. */
+	public readonly requestDebug?: DefinitionDebug;
+	constructor({accessToken, secret, url, requestDebug}: {accessToken: Client['accessToken'], secret?: Client['secret'], url?: Client['url'], requestDebug?: Client['requestDebug']})
 	{
 		this.accessToken = accessToken;
 		this.url = url ?? this.url;
@@ -28,7 +31,8 @@ export class Client
 			{
 				path: url,
 				auth: () => `Bearer ${accessToken}`,
-				queryBody: 'body'
+				queryBody: 'body',
+				debug: requestDebug
 			}
 		);
 	};

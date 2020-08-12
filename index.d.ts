@@ -3,6 +3,9 @@ declare module 'gather-api'
 	// External Modules
 	import { Domain } from '@chris-talman/request';
 
+	// Types
+	import { DefinitionDebug } from '@chris-talman/request';
+
 	// Client
 	export class Client
 	{
@@ -10,7 +13,9 @@ declare module 'gather-api'
 		public readonly secret?: string;
 		public readonly url: string;
 		public readonly domain: Domain;
-		constructor({accessToken, secret, url}: {accessToken: Client['accessToken'], secret?: Client['secret'], url?: Client['url']});
+		/** Debug options to pass to the request module. */
+		public readonly requestDebug?: DefinitionDebug;
+		constructor({accessToken, secret, url, requestDebug}: {accessToken: Client['accessToken'], secret?: Client['secret'], url?: Client['url'], requestDebug?: Client['requestDebug']});
 		verifySignature({signature, requestBody}: {signature: string, requestBody: string | object}): boolean;
 		generateRequestBodySignature({requestBody}: {requestBody: string | object}): string;
 		public readonly guilds: Guilds;
