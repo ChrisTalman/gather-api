@@ -16,6 +16,6 @@
 	},
 	"dependencies": {
 		"@chris-talman/isomorphic-utilities": "1.13.2",
-		"@chris-talman/request": "3.2.0"
+		"@chris-talman/request": "3.2.2"
 	}
 }
