@@ -94,7 +94,7 @@ declare module 'gather-api'
 	export interface ApiErrorEntityConflict
 	{
 		code: 'entityConflict';
-		name: ApiErrorResourceName;
+		resource: ApiErrorResourceName;
 		field?: 'name' | 'token';
 	}
 	type ApiErrorResourceName =
