@@ -19,6 +19,7 @@ declare module 'gather-api'
 		verifySignature({signature, requestBody}: {signature: string, requestBody: string | object}): boolean;
 		generateRequestBodySignature({requestBody}: {requestBody: string | object}): string;
 		public readonly guilds: Guilds;
+		public readonly forms: Forms;
 	}
 
 	// Resource
