@@ -57,6 +57,99 @@ declare module 'gather-api'
 		name: string;
 	}
 
+	// Guilds
+	class Forms extends Resource
+	{
+		public elements: FormsElements;
+	}
+
+	// Forms: Elements
+	class FormsElements extends Resource
+	{
+		public get({timestamp, formId}: {timestamp: number, formId: string} & RequestOptionsWrapper): Promise <FormsElementsGetResult>;
+	}
+	export interface FormsElementsGetResult extends Pick <ResponseBody <FormElements>, 'data'> {}
+	export type FormElements = Array <FormElement>;
+	export type FormElement =
+		TextInputElement |
+		OptionsElement |
+		TimezoneElement |
+		IdentityElement |
+		CheckboxElement |
+		DatetimeElement |
+		AvailabilityElement
+	;
+	export interface BaseElement
+	{
+		id: string;
+		type: 'TextInput' | 'Options' | 'Timezone' | 'Identity' | 'Checkbox' | 'Datetime' | 'Availability';
+		position: number;
+		optional?: boolean;
+	}
+	export interface TextInputElement extends BaseElement
+	{
+		type: 'TextInput';
+		label: string;
+		description?: string;
+		min?: number;
+		max?: number;
+		multiline?: boolean;
+		pattern?: TextInputPattern;
+	}
+	export type TextInputPattern = 'integer' | 'float';
+	export interface OptionsElement extends BaseElement
+	{
+		type: 'Options';
+		label: string;
+		description?: string;
+		min?: number;
+		max?: number;
+		multiple?: boolean;
+		options: Options;
+	}
+	export interface Options extends Array <Option> {}
+	export interface Option
+	{
+		id: string;
+		position: number;
+		label: string;
+	}
+	export interface TimezoneElement extends BaseElement
+	{
+		type: 'Timezone';
+		label: string;
+		description: string;
+		min: number;
+		max: number;
+	}
+	export interface IdentityElement extends BaseElement
+	{
+		type: 'Identity';
+		label: string;
+		description: string;
+		platforms: IdentityElementPlatforms;
+	}
+	export interface IdentityElementPlatforms extends Array <IdentityElementPlatform> {}
+	export type IdentityElementPlatform = 'discord' | 'steam' | 'blizzard' | 'google';
+	export interface CheckboxElement extends BaseElement
+	{
+		type: 'Checkbox';
+		label: string;
+		description: string;
+	}
+	export interface DatetimeElement extends BaseElement
+	{
+		type: 'Datetime';
+		label: string;
+		description: string;
+	}
+	export interface AvailabilityElement extends BaseElement
+	{
+		type: 'Availability';
+		label: string;
+		description: string;
+	}
+
 	// Standard Response
 	export interface ResponseBody <GenericData extends object>
 	{

@@ -8,6 +8,7 @@ import { throwRejectionApiError } from 'src/Modules/ApiError';
 import { verifySignature, generateRequestBodySignature } from 'src/Modules/Signature';
 import { ScheduledRequest } from './ScheduledRequest';
 import { Guilds } from './Methods/Guilds';
+import { Forms } from './Methods/Forms';
 
 // Types
 import { DefinitionDebug } from '@chris-talman/request';
@@ -60,4 +61,5 @@ export class Client
 		return signature;
 	};
 	public guilds = new Guilds({client: this});
+	public forms = new Forms({client: this});
 };
