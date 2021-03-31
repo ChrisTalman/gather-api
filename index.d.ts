@@ -74,7 +74,7 @@ declare module 'gather-api'
 	export type FormElement =
 		TextInputElement |
 		OptionsElement |
-		TimezoneElement |
+		TimezoneOffsetElement |
 		IdentityElement |
 		CheckboxElement |
 		DatetimeElement |
@@ -83,7 +83,7 @@ declare module 'gather-api'
 	export interface BaseElement
 	{
 		id: string;
-		type: 'TextInput' | 'Options' | 'Timezone' | 'Identity' | 'Checkbox' | 'Datetime' | 'Availability';
+		type: 'TextInput' | 'Options' | 'TimezoneOffset' | 'Identity' | 'Checkbox' | 'Datetime' | 'Availability';
 		position: number;
 		optional?: boolean;
 	}
@@ -115,9 +115,9 @@ declare module 'gather-api'
 		position: number;
 		label: string;
 	}
-	export interface TimezoneElement extends BaseElement
+	export interface TimezoneOffsetElement extends BaseElement
 	{
-		type: 'Timezone';
+		type: 'TimezoneOffset';
 		label: string;
 		description: string;
 		min: number;
