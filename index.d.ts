@@ -154,10 +154,6 @@ declare module 'gather-api'
 	}
 
 	// Forms: Submit
-	export interface FormsSubmitResult
-	{
-		id: string;
-	}
 	export interface FormsSubmitElements
 	{
 		[elementId: string]: FormsSubmitElement;
@@ -208,6 +204,11 @@ declare module 'gather-api'
 	{
 		/** Array of hour offsets in minutes, in the submitted timezone. */
 		[day: number]: Array <number>;
+	}
+	export interface FormsSubmitResult extends Pick <ResponseBody <FormsSubmitResultData>, 'data'> {}
+	export interface FormsSubmitResultData
+	{
+		id: string;
 	}
 
 	// Standard Response
