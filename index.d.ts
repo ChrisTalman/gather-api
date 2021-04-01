@@ -58,11 +58,13 @@ declare module 'gather-api'
 		name: string;
 	}
 
-	// Guilds
+	// Forms
 	class Forms extends Resource
 	{
+		public submit({elements, state, formTimestamp, formId}: {elements: FormsSubmitElements, state: FormState, formTimestamp: number, formId: string} & RequestOptionsWrapper): Promise <FormsSubmitResult>;
 		public elements: FormsElements;
 	}
+	type FormState = 'draft' | 'submitted' | 'approved' | 'rejected' | 'cancelled';
 
 	// Forms: Elements
 	class FormsElements extends Resource
@@ -149,6 +151,52 @@ declare module 'gather-api'
 		type: 'Availability';
 		label: string;
 		description: string;
+	}
+
+	// Forms: Submit
+	export interface FormsSubmitResult
+	{
+		id: string;
+	}
+	export interface FormsSubmitElements
+	{
+		[elementId: string]: FormsSubmitElement;
+	}
+	export type FormsSubmitElement =
+		TextInputFormsSubmitElement |
+		OptionsFormsSubmitElement |
+		TimezoneOffsetFormsSubmitElement |
+		IdentityFormsSubmitElement |
+		CheckboxFormsSubmitElement |
+		DatetimeFormsSubmitElement |
+		AvailabilityFormsSubmitElement
+	export interface TextInputFormsSubmitElement
+	{
+		value: string | null;
+	}
+	export interface OptionsFormsSubmitElement
+	{
+		value: Array <string> | null;
+	}
+	export interface TimezoneOffsetFormsSubmitElement
+	{
+		value: number | null;
+	}
+	export interface IdentityFormsSubmitElement
+	{
+		value: string | null;
+	}
+	export interface CheckboxFormsSubmitElement
+	{
+		value: true | null;
+	}
+	export interface DatetimeFormsSubmitElement
+	{
+		value: number | null;
+	}
+	export interface AvailabilityFormsSubmitElement
+	{
+		value: Array <Array <number>> | null;
 	}
 
 	// Standard Response

@@ -18,8 +18,13 @@ export class ScheduledRequest <GenericResultJson, GenericResult extends RequestR
 	public readonly promiseController: PromiseController <RequestResult<GenericResultJson>>;
 	private executing = false;
 	private executed = false;
-	constructor({request, options, client}: {request: RequestDefinition, options: RequestOptions, client: Client})
+	constructor({request: rawRequest, options, client}: {request: RequestDefinition, options: RequestOptions, client: Client})
 	{
+		const request = Object.assign({}, rawRequest);
+		if (typeof options.accessToken === 'string')
+		{
+			request.auth = `Bearer ${options.accessToken}`;
+		};
 		this.request = request;
 		this.options = options;
 		this.client = client;

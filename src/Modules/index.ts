@@ -3,6 +3,7 @@
 // Types
 export interface RequestOptions
 {
+	accessToken?: string;
 	useQueue?: boolean;
 };
 export interface RequestOptionsWrapper
