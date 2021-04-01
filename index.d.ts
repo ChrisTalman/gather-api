@@ -169,7 +169,8 @@ declare module 'gather-api'
 		IdentityFormsSubmitElement |
 		CheckboxFormsSubmitElement |
 		DatetimeFormsSubmitElement |
-		AvailabilityFormsSubmitElement
+		AvailabilityFormsSubmitElement |
+		null
 	export interface TextInputFormsSubmitElement
 	{
 		value: string | null;
@@ -196,7 +197,17 @@ declare module 'gather-api'
 	}
 	export interface AvailabilityFormsSubmitElement
 	{
-		value: Array <Array <number>> | null;
+		value: AvailabilityFormsSubmitElementValue | null;
+	}
+	export interface AvailabilityFormsSubmitElementValue
+	{
+		timezone: string;
+		days: AvailabilityFormsSubmitElementValueDays;
+	}
+	export type AvailabilityFormsSubmitElementValueDays =
+	{
+		/** Array of hour offsets in minutes, in the submitted timezone. */
+		[day: number]: Array <number>;
 	}
 
 	// Standard Response
