@@ -25,7 +25,7 @@ export interface PostRequestBodyData
 	elements: object;
 };
 
-export async function get(this: Resource, {elements, state, formTimestamp, formId, options}: Parameters)
+export async function submit(this: Resource, {elements, state, formTimestamp, formId, options}: Parameters)
 {
 	const body: PostRequestBody =
 	{
