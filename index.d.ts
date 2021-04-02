@@ -52,11 +52,17 @@ declare module 'gather-api'
 	}
 
 	// Guilds: Roles
+	class GuildsRoles extends Resource
+	{
+		public create({data, guildId}: {data: Pick <GuildRole, 'name'>, guildId: string}): Promise <GuildsRolesCreateResult>;
+		public update({id, data, guildId}: {id: string, data: Partial <Pick <GuildRole, 'name'>>, guildId: string}): Promise <void>;
+	}
 	export interface GuildRole
 	{
 		id: string;
 		name: string;
 	}
+	export interface GuildsRolesCreateResult extends Pick <ResponseBody <GuildRole>, 'data'> {}
 
 	// Forms
 	class Forms extends Resource
