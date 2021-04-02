@@ -29,6 +29,7 @@ declare module 'gather-api'
 	class Guilds extends Resource
 	{
 		public members: GuildsMembers;
+		public roles: GuildsRoles;
 	}
 
 	// Guilds: Members
