@@ -152,6 +152,7 @@ declare module 'gather-api'
 		type: 'Datetime';
 		label: string;
 		description: string;
+		mode: 'Datetime' | 'Date';
 	}
 	export interface AvailabilityElement extends BaseElement
 	{
