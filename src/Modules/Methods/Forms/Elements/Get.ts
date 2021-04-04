@@ -56,7 +56,8 @@ export async function get(this: Resource, {timestamp, formId, options}: Paramete
 					'label',
 					'position'
 				]
-			}
+			},
+			'mode'
 		],
 		data:
 		{
