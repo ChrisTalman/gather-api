@@ -68,7 +68,7 @@ declare module 'gather-api'
 	// Forms
 	class Forms extends Resource
 	{
-		public submit({elements, state, formTimestamp, formId}: {elements: FormsSubmitElements, state: FormState, formTimestamp: number, formId: string} & RequestOptionsWrapper): Promise <FormsSubmitResult>;
+		public submit({elements, state, venue, formTimestamp, formId}: {elements: FormsSubmitElements, state: FormState, venue?: FormsSubmitVenue, formTimestamp: number, formId: string} & RequestOptionsWrapper): Promise <FormsSubmitResult>;
 		public elements: FormsElements;
 	}
 	type FormState = 'draft' | 'submitted' | 'approved' | 'rejected' | 'cancelled';
@@ -212,6 +212,10 @@ declare module 'gather-api'
 	{
 		/** Array of hour offsets in minutes, in the submitted timezone. */
 		[day: number]: Array <number>;
+	}
+	export interface FormsSubmitVenue
+	{
+		token: string;
 	}
 	export interface FormsSubmitResult extends Pick <ResponseBody <FormsSubmitResultData>, 'data'> {}
 	export interface FormsSubmitResultData

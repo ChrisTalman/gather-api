@@ -11,6 +11,7 @@ interface Parameters extends RequestOptionsWrapper
 {
 	elements: PostRequestBodyData['elements'];
 	state: PostRequestBodyData['state'];
+	venue?: PostRequestBodyData['venue'];
 	formTimestamp: number;
 	formId: string;
 };
@@ -23,9 +24,10 @@ export interface PostRequestBodyData
 	formTimestamp: number;
 	state: string;
 	elements: object;
+	venue?: object;
 };
 
-export async function submit(this: Resource, {elements, state, formTimestamp, formId, options}: Parameters)
+export async function submit(this: Resource, {elements, state, venue, formTimestamp, formId, options}: Parameters)
 {
 	const body: PostRequestBody =
 	{
@@ -37,6 +39,7 @@ export async function submit(this: Resource, {elements, state, formTimestamp, fo
 		{
 			elements,
 			state,
+			venue,
 			formTimestamp
 		}
 	};
