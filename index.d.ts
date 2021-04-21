@@ -164,7 +164,7 @@ declare module 'gather-api'
 	class FormsSubmissions extends Resource
 	{
 		public create({elements, state, venue, formTimestamp, formId}: {elements: FormsSubmitElements, state: FormSubmissionState, venue?: FormsSubmitVenue, formTimestamp: number, formId: string} & RequestOptionsWrapper): Promise <FormsSubmissionCreateResult>;
-		public update({id, formId, elements, state}: {id: string, formId: string, elements?: FormsSubmitElements, state?: FormSubmissionState}): Promise <void>;
+		public update({id, formId, elements, state}: {id: string, formId: string, elements?: FormsSubmitElements, state?: FormSubmissionState} & RequestOptionsWrapper): Promise <void>;
 	}
 	type FormSubmissionState = 'draft' | 'submitted' | 'approved' | 'rejected' | 'cancelled';
 
