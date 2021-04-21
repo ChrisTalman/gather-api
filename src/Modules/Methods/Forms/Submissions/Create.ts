@@ -27,7 +27,7 @@ export interface PostRequestBodyData
 	venue?: object;
 };
 
-export async function submit(this: Resource, {elements, state, venue, formTimestamp, formId, options}: Parameters)
+export async function create(this: Resource, {elements, state, venue, formTimestamp, formId, options}: Parameters)
 {
 	const body: PostRequestBody =
 	{

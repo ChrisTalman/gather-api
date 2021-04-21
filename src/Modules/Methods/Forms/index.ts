@@ -4,16 +4,14 @@
 import { Client } from 'src/Modules/Client';
 import { Resource } from 'src/Modules/Resource';
 
-// Methods
-import { submit } from './Submit';
-
 // Resources
 import { FormElements } from './Elements';
+import { FormSubmissions } from './Submissions';
 
 export class Forms extends Resource
 {
 	public readonly elements: FormElements;
-	public submit = submit;
+	public readonly submissions: FormSubmissions;
 	constructor({client}: {client: Client})
 	{
 		super({client});

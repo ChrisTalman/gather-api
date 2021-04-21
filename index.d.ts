@@ -68,10 +68,9 @@ declare module 'gather-api'
 	// Forms
 	class Forms extends Resource
 	{
-		public submit({elements, state, venue, formTimestamp, formId}: {elements: FormsSubmitElements, state: FormState, venue?: FormsSubmitVenue, formTimestamp: number, formId: string} & RequestOptionsWrapper): Promise <FormsSubmitResult>;
 		public elements: FormsElements;
+		public submissions: FormsSubmissions;
 	}
-	type FormState = 'draft' | 'submitted' | 'approved' | 'rejected' | 'cancelled';
 
 	// Forms: Elements
 	class FormsElements extends Resource
@@ -161,7 +160,15 @@ declare module 'gather-api'
 		description: string;
 	}
 
-	// Forms: Submit
+	// Forms: Submissions
+	class FormsSubmissions extends Resource
+	{
+		public create({elements, state, venue, formTimestamp, formId}: {elements: FormsSubmitElements, state: FormSubmissionState, venue?: FormsSubmitVenue, formTimestamp: number, formId: string} & RequestOptionsWrapper): Promise <FormsSubmissionCreateResult>;
+		public update({id, formId, elements, state}: {id: string, formId: string, elements: FormsSubmitElements, state: FormSubmissionState}): Promise <void>;
+	}
+	type FormSubmissionState = 'draft' | 'submitted' | 'approved' | 'rejected' | 'cancelled';
+
+	// Forms: Submissions: Submit
 	export interface FormsSubmitElements
 	{
 		[elementId: string]: FormsSubmitElement;
@@ -217,7 +224,7 @@ declare module 'gather-api'
 	{
 		token: string;
 	}
-	export interface FormsSubmitResult extends Pick <ResponseBody <FormsSubmitResultData>, 'data'> {}
+	export interface FormsSubmissionCreateResult extends Pick <ResponseBody <FormsSubmitResultData>, 'data'> {}
 	export interface FormsSubmitResultData
 	{
 		id: string;
