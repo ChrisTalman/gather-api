@@ -16,5 +16,6 @@ export class Forms extends Resource
 	{
 		super({client});
 		this.elements = new FormElements({client});
+		this.submissions = new FormSubmissions({client});
 	};
 };
