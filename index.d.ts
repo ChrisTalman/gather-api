@@ -35,6 +35,7 @@ declare module 'gather-api'
 	// Guilds: Members
 	class GuildsMembers extends Resource
 	{
+		public add({userId, guildId}: {userId: string, guildId: string} & RequestOptionsWrapper): Promise <void>;
 		public kick({memberId, guildId}: {memberId: string, guildId: string} & RequestOptionsWrapper): Promise <void>;
 		public roles: GuildsMembersRoles;
 	}
