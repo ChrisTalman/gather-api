@@ -248,7 +248,8 @@ declare module 'gather-api'
 		ApiErrorNotFound |
 		ApiErrorUnauthenticated |
 		ApiErrorUnauthorised |
-		ApiErrorEntityConflict
+		ApiErrorEntityConflict |
+		ApiErrorInvalidAction
 	;
 	export interface ApiErrorNotFound
 	{
@@ -277,6 +278,55 @@ declare module 'gather-api'
 		'guild_member' |
 		'guild_member_role'
 	;
+	export interface ApiErrorInvalidAction
+	{
+		code: 'invalidAction';
+		reason:
+			'notSelf' |
+			'maxUserTokens' |
+			'notPersonUser' |
+			'notBotUser' |
+			'protected' |
+			'unverified' |
+			'disabled' |
+			'expired' |
+			'redeemed' |
+			'exhausted' |
+			'closed' |
+			'deleted' |
+			'emailMismatch' |
+			'emailNotFound' |
+			'alreadyVerified' |
+			'currentPasswordRequired' |
+			'unconfirmedEmailAlreadyEmail' |
+			'invalidPublicIdentity' |
+			'alone' |
+			'aloneEmail' |
+			'isGuildOwner' |
+			'notGuildMember' |
+			'registrationInUse' |
+			'registrationDisabled' |
+			'openidUnverified' |
+			'userMaxGuildOwnerships' |
+			'userMaxGuildMemberships' |
+			'maxGuildGames' |
+			'maxForms' |
+			'maxOpenForms' |
+			'maxElements' |
+			'maxOptions' |
+			'invalidState' |
+			'decisionDisallowed' |
+			'notExclusive' |
+			'maxLinks' |
+			'maxWebhooks' |
+			'discordDisabled' |
+			'emailNotificationCannotUnsetWithoutUserEmail' |
+			'paypalWebhookDependencyUnavailable' |
+			'paypalWebhookHandlerNotFound' |
+			'paypalWebhookSignatureInvalid'
+		;
+		resource?: Resource;
+	}
 
 	// Utilities
 	export function verifySignature({signature, requestBody, secret}: {signature: string, requestBody: string | object, secret: string}): boolean;
