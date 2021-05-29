@@ -167,7 +167,7 @@ declare module 'gather-api'
 	{
 		public create({elements, state, venue, formTimestamp, formId}: {elements: FormsSubmitElements, state: FormSubmissionState, venue?: FormsSubmitVenue, formTimestamp: number, formId: string} & RequestOptionsWrapper): Promise <FormsSubmissionCreateResult>;
 		public update({id, formId, elements, state}: {id: string, formId: string, elements?: FormsSubmitElements, state?: FormSubmissionState} & RequestOptionsWrapper): Promise <void>;
-		public get({formId, guildId}: {formId: string, guildId: string} & RequestOptionsWrapper): Promise <FormsSubmissionGetResult>;
+		public get({formId, guildId}: {formId: string, guildId: string, pluck: Pluck} & RequestOptionsWrapper): Promise <FormsSubmissionGetResult>;
 	}
 	type FormSubmissionState = 'draft' | 'submitted' | 'approved' | 'rejected' | 'cancelled';
 
@@ -334,6 +334,9 @@ declare module 'gather-api'
 	// Utilities
 	export function verifySignature({signature, requestBody, secret}: {signature: string, requestBody: string | object, secret: string}): boolean;
 	export function generateRequestBodySignature({requestBody, secret}: {requestBody: string | object, secret: string}): string;
+
+	// Pluck
+	export type Pluck = import('./src/Types/Api/Pluck').Pluck;
 
 	// Request Options
 	export interface RequestOptions

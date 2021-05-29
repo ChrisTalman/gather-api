@@ -12,20 +12,18 @@ interface Parameters extends RequestOptionsWrapper
 {
 	submissionId: string;
 	guildId: string;
+	pluck: Pluck;
 };
 export interface GetRequestBody extends Pick <RequestBody, 'data' | 'pluck'>
 {
 	pluck: Pluck;
 };
 
-export async function get(this: Resource, {submissionId, guildId, options}: Parameters)
+export async function get(this: Resource, {submissionId, guildId, pluck, options}: Parameters)
 {
 	const body: GetRequestBody =
 	{
-		pluck:
-		[
-			'id'
-		]
+		pluck
 	};
 	const result = await this._client.scheduleApiRequest <any>
 	(
