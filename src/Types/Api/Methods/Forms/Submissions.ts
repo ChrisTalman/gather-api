@@ -4,6 +4,7 @@
 import { Guild } from '../../Data/Guilds';
 import { Form } from '../../Data/Forms';
 import { UserIdentity } from '../../Data/User';
+import { Identity } from '../../Data/Identity';
 
 export interface Submission
 {
@@ -69,7 +70,7 @@ export interface TimezoneSubmissionElement extends BaseSubmissionElement
 export interface IdentitySubmissionElement extends BaseSubmissionElement
 {
 	value: string;
-	identity: UserIdentity;
+	identity: Identity;
 };
 
 // Checkbox
