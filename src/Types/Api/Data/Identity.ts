@@ -13,11 +13,12 @@ export interface BaseIdentity
 	id: string;
 	platform: BaseIdentityPlatform;
 };
-export type BaseIdentityPlatform = 'discord' | 'steam' | 'blizzard' | 'google';
+export type BaseIdentityPlatform = 'discord' | 'steam' | 'blizzard' | 'microsoft' | 'google';
 
 // Discord
 export interface DiscordIdentity extends BaseIdentity
 {
+	platform: 'discord';
 	data: DiscordIdentityData;
 };
 export interface DiscordIdentityData
@@ -33,6 +34,7 @@ export interface DiscordIdentityData
 // Steam
 export interface SteamIdentity extends BaseIdentity
 {
+	platform: 'steam';
 	data: SteamIdentityData;
 };
 export interface SteamIdentityData
@@ -46,6 +48,7 @@ export interface SteamIdentityData
 // Blizzard
 export interface BlizzardIdentity extends BaseIdentity
 {
+	platform: 'blizzard';
 	data: BlizzardIdentityData;
 };
 export interface BlizzardIdentityData
@@ -59,6 +62,7 @@ export interface BlizzardIdentityData
 // Microsoft
 export interface MicrosoftIdentity extends BaseIdentity
 {
+	platform: 'microsoft';
 	data: MicrosoftIdentityData;
 };
 export interface MicrosoftIdentityData
@@ -75,8 +79,9 @@ export interface MicrosoftIdentityDataXbox
 };
 
 // Google
-export interface GoogleIdentity
+export interface GoogleIdentity extends BaseIdentity
 {
+	platform: 'google';
 	data: GoogleIdentityData;
 };
 export interface GoogleIdentityData
