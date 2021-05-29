@@ -5,4 +5,4 @@
 !/index.d.ts
 !/package.json
 !/package-lock.json
-!/src/Types
+!/src/Types/**
