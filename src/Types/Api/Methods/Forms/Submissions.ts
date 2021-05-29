@@ -69,6 +69,7 @@ export interface TimezoneSubmissionElement extends BaseSubmissionElement
 export interface IdentitySubmissionElement extends BaseSubmissionElement
 {
 	value: string;
+	identity: UserIdentity;
 };
 
 // Checkbox
