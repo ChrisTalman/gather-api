@@ -167,6 +167,7 @@ declare module 'gather-api'
 	{
 		public create({elements, state, venue, formTimestamp, formId}: {elements: FormsSubmitElements, state: FormSubmissionState, venue?: FormsSubmitVenue, formTimestamp: number, formId: string} & RequestOptionsWrapper): Promise <FormsSubmissionCreateResult>;
 		public update({id, formId, elements, state}: {id: string, formId: string, elements?: FormsSubmitElements, state?: FormSubmissionState} & RequestOptionsWrapper): Promise <void>;
+		public get({formId, guildId}: {formId: string, guildId: string} & RequestOptionsWrapper): Promise <FormsSubmissionGetResult>;
 	}
 	type FormSubmissionState = 'draft' | 'submitted' | 'approved' | 'rejected' | 'cancelled';
 
@@ -231,6 +232,8 @@ declare module 'gather-api'
 	{
 		id: string;
 	}
+	export interface FormsSubmissionGetResult extends Pick <ResponseBody <Submission>, 'data'> {}
+	export type Submission = import('./src/Types/Api/Methods/Forms/Submissions').Submission;
 
 	// Standard Response
 	export interface ResponseBody <GenericData extends object>
