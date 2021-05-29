@@ -30,7 +30,7 @@ export async function get(this: Resource, {submissionId, guildId, pluck, options
 		{
 			request:
 			{
-				method: 'POST',
+				method: 'GET',
 				path: `/guilds/${guildId}/forms/submissions/${submissionId}`,
 				body,
 				jsonResponseSuccess: true,

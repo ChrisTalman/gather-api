@@ -26,7 +26,7 @@ export interface DiscordIdentityData
 	id: string;
 	username: string;
 	discriminator: string;
-	avatar?: string;
+	avatar: string | null;
 	email: string;
 	updated: number;
 };
@@ -41,7 +41,7 @@ export interface SteamIdentityData
 {
 	id: string;
 	username: string;
-	discriminator: string;
+	avatar: string;
 	updated: number;
 };
 
@@ -67,6 +67,7 @@ export interface MicrosoftIdentity extends BaseIdentity
 };
 export interface MicrosoftIdentityData
 {
+	id: string;
 	xbox: MicrosoftIdentityDataXbox;
 	updated: number;
 };
