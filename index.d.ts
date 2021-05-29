@@ -167,7 +167,7 @@ declare module 'gather-api'
 	{
 		public create({elements, state, venue, formTimestamp, formId}: {elements: FormsSubmitElements, state: FormSubmissionState, venue?: FormsSubmitVenue, formTimestamp: number, formId: string} & RequestOptionsWrapper): Promise <FormsSubmissionCreateResult>;
 		public update({id, formId, elements, state}: {id: string, formId: string, elements?: FormsSubmitElements, state?: FormSubmissionState} & RequestOptionsWrapper): Promise <void>;
-		public get({formId, guildId}: {formId: string, guildId: string, pluck: Pluck} & RequestOptionsWrapper): Promise <FormsSubmissionGetResult>;
+		public get({submissionId, guildId}: {submissionId: string, guildId: string, pluck: Pluck} & RequestOptionsWrapper): Promise <FormsSubmissionGetResult>;
 	}
 	type FormSubmissionState = 'draft' | 'submitted' | 'approved' | 'rejected' | 'cancelled';
 
