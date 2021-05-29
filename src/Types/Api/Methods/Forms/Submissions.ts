@@ -1,9 +1,9 @@
 'use strict';
 
 // Types
-import { Guild } from 'src/Types/Api/Data/Guilds';
-import { Form } from 'src/Types/Api/Data/Forms';
-import { UserIdentity } from 'src/Types/Api/Data/User';
+import { Guild } from '../../Data/Guilds';
+import { Form } from '../../Data/Forms';
+import { UserIdentity } from '../../Data/User';
 
 export interface Submission
 {
