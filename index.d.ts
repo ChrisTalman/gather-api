@@ -70,9 +70,11 @@ declare module 'gather-api'
 	// Forms
 	class Forms extends Resource
 	{
+		public get({formId, pluck}: {formId: string, pluck: Pluck}): Promise <import('./src/Types/Api/Data/Forms').GetResponseBody>;
 		public elements: FormsElements;
 		public submissions: FormsSubmissions;
 	}
+	export type Form = import('./src/Types/Api/Data/Forms').Form;
 
 	// Forms: Elements
 	class FormsElements extends Resource
