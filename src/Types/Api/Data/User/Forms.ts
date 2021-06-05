@@ -4,7 +4,7 @@
 import { Guild } from '../../../Api/Data/Guilds';
 import { Form } from '../../../Api/Data/Forms';
 import { UserIdentity } from '../../../Api/Data/User';
-import { Identity } from '../../../Api/Data/Identity';
+import { Identity } from '../../../Api/Data/User/Identity';
 
 export interface Submission
 {
