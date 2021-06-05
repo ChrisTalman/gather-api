@@ -5,24 +5,21 @@ import { resolveApiResponseJson } from 'src/Modules/ApiResponse';
 import { Resource } from 'src/Modules/Resource';
 
 // Types
-import { RequestBody } from 'src/Types/Api/Request';
-import { Pluck } from 'src/Types/Api/Pluck';
-import { RequestOptionsWrapper } from 'src/Types/Methods';
-interface Parameters extends RequestOptionsWrapper
-{
-	formId: string;
-	pluck: Pluck;
-};
-export interface GetRequestBody extends Pick <RequestBody, 'pluck'>
-{
-	pluck: Pluck;
-};
+import { MethodParameters, GetRequestBody } from 'src/Types/Methods/Guilds/Forms/Submissions/List';
 
-export async function get(this: Resource, {formId, pluck, options}: Parameters)
+export async function list(this: Resource, {guildId, filters, pagination, pluck, options}: MethodParameters)
 {
 	const body: GetRequestBody =
 	{
-		pluck
+		pluck,
+		pagination
+	};
+	if (filters)
+	{
+		body.data =
+		{
+			filters
+		};
 	};
 	const result = await this._client.scheduleApiRequest <any>
 	(
@@ -30,7 +27,7 @@ export async function get(this: Resource, {formId, pluck, options}: Parameters)
 			request:
 			{
 				method: 'GET',
-				path: `/forms/${formId}`,
+				path: `/guilds/${guildId}/forms/submissions`,
 				body,
 				jsonResponseSuccess: true,
 				jsonResponseError: true

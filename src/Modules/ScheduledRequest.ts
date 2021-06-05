@@ -8,7 +8,7 @@ import { PromiseController } from '@chris-talman/isomorphic-utilities';
 import { Client } from './Client';
 
 // Types
-import { RequestOptions } from 'src/Modules';
+import { RequestOptions } from 'src/Types/Methods';
 
 export class ScheduledRequest <GenericResultJson, GenericResult extends RequestResult<GenericResultJson> = RequestResult<GenericResultJson>>
 {

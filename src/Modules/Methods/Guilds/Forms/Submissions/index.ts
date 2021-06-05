@@ -5,13 +5,13 @@ import { Client } from 'src/Modules/Client';
 import { Resource } from 'src/Modules/Resource';
 
 // Methods
-import { create } from './Create';
-import { update } from './Update';
+import { get } from './Get';
+import { list } from './List';
 
-export class FormSubmissions extends Resource
+export class GuildFormSubmissions extends Resource
 {
-	public create = create;
-	public update = update;
+	public list = list;
+	public get = get;
 	constructor({client}: {client: Client})
 	{
 		super({client});

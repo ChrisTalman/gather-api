@@ -30,6 +30,7 @@ declare module 'gather-api'
 	{
 		public members: GuildsMembers;
 		public roles: GuildsRoles;
+		public forms: GuildsForms;
 	}
 
 	// Guilds: Members
@@ -66,6 +67,19 @@ declare module 'gather-api'
 		name: string;
 	}
 	export interface GuildsRolesCreateResult extends Pick <ResponseBody <GuildRole>, 'data'> {}
+
+	// Guilds: Forms
+	class GuildsForms extends Resource
+	{
+		public submissions: GuildsFormsSubmissions;
+	}
+
+	// Guilds: Forms: Submissions
+	class GuildsFormsSubmissions extends Resource
+	{
+		public get(parameters: import('./src/Types/Methods/Guilds/Forms/Submissions/Get').MethodParameters): Promise <import('./src/Types/Methods/Guilds/Forms/Submissions/Get').GetResponseBody>;
+		public list(parameters: import('./src/Types/Methods/Guilds/Forms/Submissions/List').MethodParameters): Promise <import('./src/Types/Methods/Guilds/Forms/Submissions/List').GetResponseBody>;
+	}
 
 	// Forms
 	class Forms extends Resource
@@ -169,7 +183,6 @@ declare module 'gather-api'
 	{
 		public create({elements, state, venue, formTimestamp, formId}: {elements: FormsSubmitElements, state: FormSubmissionState, venue?: FormsSubmitVenue, formTimestamp: number, formId: string} & RequestOptionsWrapper): Promise <FormsSubmissionCreateResult>;
 		public update({id, formId, elements, state}: {id: string, formId: string, elements?: FormsSubmitElements, state?: FormSubmissionState} & RequestOptionsWrapper): Promise <void>;
-		public get({submissionId, guildId}: {submissionId: string, guildId: string, pluck: Pluck} & RequestOptionsWrapper): Promise <FormsSubmissionGetResult>;
 	}
 	type FormSubmissionState = 'draft' | 'submitted' | 'approved' | 'rejected' | 'cancelled';
 
@@ -234,8 +247,6 @@ declare module 'gather-api'
 	{
 		id: string;
 	}
-	export interface FormsSubmissionGetResult extends Pick <ResponseBody <Submission>, 'data'> {}
-	export type Submission = import('./src/Types/Api/Methods/Forms/Submissions').Submission;
 
 	// Standard Response
 	export interface ResponseBody <GenericData extends object>

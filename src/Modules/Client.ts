@@ -12,7 +12,7 @@ import { Forms } from './Methods/Forms';
 
 // Types
 import { DefinitionDebug } from '@chris-talman/request';
-import { RequestOptions } from 'src/Modules';
+import { RequestOptions } from 'src/Types/Methods';
 
 export class Client
 {

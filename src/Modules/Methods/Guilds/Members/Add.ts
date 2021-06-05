@@ -4,7 +4,7 @@
 import { Resource } from 'src/Modules/Resource';
 
 // Types
-import { RequestOptionsWrapper } from 'src/Modules';
+import { RequestOptionsWrapper } from 'src/Types/Methods';
 interface Parameters extends RequestOptionsWrapper
 {
 	userId: string;
