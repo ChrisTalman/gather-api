@@ -93,7 +93,7 @@ declare module 'gather-api'
 	// Forms: Elements
 	class FormsElements extends Resource
 	{
-		public get({timestamp, formId}: {timestamp: number, formId: string} & RequestOptionsWrapper): Promise <FormsElementsGetResult>;
+		public get({timestamp, formId}: {timestamp: number, formId: string, pluck: Pluck} & RequestOptionsWrapper): Promise <FormsElementsGetResult>;
 	}
 	export interface FormsElementsGetResult extends Pick <ResponseBody <FormElements>, 'data'> {}
 	export type FormElements = Array <FormElement>;
@@ -104,12 +104,13 @@ declare module 'gather-api'
 		IdentityElement |
 		CheckboxElement |
 		DatetimeElement |
-		AvailabilityElement
+		AvailabilityElement |
+		TextElement
 	;
 	export interface BaseElement
 	{
 		id: string;
-		type: 'TextInput' | 'Options' | 'TimezoneOffset' | 'Identity' | 'Checkbox' | 'Datetime' | 'Availability';
+		type: 'TextInput' | 'Options' | 'TimezoneOffset' | 'Identity' | 'Checkbox' | 'Datetime' | 'Availability' | 'Text';
 		position: number;
 		optional?: boolean;
 	}
@@ -176,6 +177,12 @@ declare module 'gather-api'
 		type: 'Availability';
 		label: string;
 		description: string;
+	}
+	export interface TextElement extends BaseElement
+	{
+		type: 'Text';
+		label: string;
+		content: string;
 	}
 
 	// Forms: Submissions
