@@ -28,6 +28,7 @@ declare module 'gather-api'
 	// Guilds
 	class Guilds extends Resource
 	{
+		public update(parameters: import('./src/Types/Methods/Guilds/Update').MethodParameters): Promise <import('./src/Types/Methods/Guilds/Update').PatchResponseBody>;
 		public members: GuildsMembers;
 		public roles: GuildsRoles;
 		public forms: GuildsForms;
