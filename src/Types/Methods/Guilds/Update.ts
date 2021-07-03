@@ -18,7 +18,7 @@ export interface PatchRequestBody extends Pick <RequestBody, 'data' | 'pluck'>
 {
 	data: PatchRequestBodyData;
 };
-export interface PatchRequestBodyData extends Pick <Guild, 'name' | 'logo'> {};
+export interface PatchRequestBodyData extends Partial <Pick <Guild, 'name' | 'logo'>> {};
 
 // Response
 export interface PatchResponseBody extends Pick <ResponseBody, 'data' | 'pagination'>
