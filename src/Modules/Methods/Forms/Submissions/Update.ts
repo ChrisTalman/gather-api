@@ -4,30 +4,13 @@
 import { Resource } from 'src/Modules/Resource';
 
 // Types
-import { RequestBody } from 'src/Types/Api/Request';
-import { RequestOptionsWrapper } from 'src/Types/Methods';
-interface Parameters extends RequestOptionsWrapper
-{
-	id: string;
-	formId: string;
-	elements?: PostRequestBodyData['elements'];
-	state?: PostRequestBodyData['state'];
-};
-export interface PostRequestBody extends Pick <RequestBody, 'data' | 'pluck'>
-{
-	data: PostRequestBodyData;
-};
-export interface PostRequestBodyData
-{
-	state?: string;
-	elements?: object;
-};
+import { MethodParameters, PatchRequestBody } from 'src/Types/Methods/Forms/Submissions/Update';
 
-export async function update(this: Resource, {id, formId, elements, state, options}: Parameters)
+export async function update(this: Resource, {id, formId, elements, state, pluck, options}: MethodParameters)
 {
-	const body: PostRequestBody =
+	const body: PatchRequestBody =
 	{
-		pluck: [],
+		pluck,
 		data: {}
 	};
 	if (elements) body.data.elements = elements;

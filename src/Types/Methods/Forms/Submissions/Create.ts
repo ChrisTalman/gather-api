@@ -9,12 +9,11 @@ import * as FormSubmissions from '../../../Api/Data/Forms/Submissions';
 // Method
 export interface MethodParameters extends RequestOptionsWrapper, Pick <PostRequestBody, 'pluck'>
 {
-	id: string;
 	formId: string;
 	formTimestamp: number;
 	venue?: Venue;
 	elements: Elements;
-	state?: FormSubmissions.State;
+	state: FormSubmissions.State;
 };
 
 // Venue

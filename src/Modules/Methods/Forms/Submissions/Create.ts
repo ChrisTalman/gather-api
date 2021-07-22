@@ -5,36 +5,13 @@ import { resolveApiResponseJson } from 'src/Modules/ApiResponse';
 import { Resource } from 'src/Modules/Resource';
 
 // Types
-import { RequestBody } from 'src/Types/Api/Request';
-import { RequestOptionsWrapper } from 'src/Types/Methods';
-interface Parameters extends RequestOptionsWrapper
-{
-	elements: PostRequestBodyData['elements'];
-	state: PostRequestBodyData['state'];
-	venue?: PostRequestBodyData['venue'];
-	formTimestamp: number;
-	formId: string;
-};
-export interface PostRequestBody extends Pick <RequestBody, 'data' | 'pluck'>
-{
-	data: PostRequestBodyData;
-};
-export interface PostRequestBodyData
-{
-	formTimestamp: number;
-	state: string;
-	elements: object;
-	venue?: object;
-};
+import { MethodParameters, PostRequestBody } from 'src/Types/Methods/Forms/Submissions/Create';
 
-export async function create(this: Resource, {elements, state, venue, formTimestamp, formId, options}: Parameters)
+export async function create(this: Resource, {elements, state, venue, formTimestamp, formId, pluck, options}: MethodParameters)
 {
 	const body: PostRequestBody =
 	{
-		pluck:
-		[
-			'id'
-		],
+		pluck,
 		data:
 		{
 			elements,
