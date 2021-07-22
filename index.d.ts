@@ -189,71 +189,14 @@ declare module 'gather-api'
 	// Forms: Submissions
 	class FormsSubmissions extends Resource
 	{
-		public create({elements, state, venue, formTimestamp, formId}: {elements: FormsSubmitElements, state: FormSubmissionState, venue?: FormsSubmitVenue, formTimestamp: number, formId: string} & RequestOptionsWrapper): Promise <FormsSubmissionCreateResult>;
-		public update({id, formId, elements, state}: {id: string, formId: string, elements?: FormsSubmitElements, state?: FormSubmissionState} & RequestOptionsWrapper): Promise <void>;
+		public create(parameters: import('./src/Types/Methods/Forms/Submissions/Create').MethodParameters): Promise <import('./src/Types/Methods/Forms/Submissions/Create').PostResponseBody>;
+		public update(parameters: import('./src/Types/Methods/Forms/Submissions/Update').MethodParameters): Promise <import('./src/Types/Methods/Forms/Submissions/Update').PatchResponseBody>;
 	}
-	type FormSubmissionState = 'draft' | 'submitted' | 'approved' | 'rejected' | 'cancelled';
 
 	// Forms: Submissions: Submit
-	export interface FormsSubmitElements
-	{
-		[elementId: string]: FormsSubmitElement;
-	}
-	export type FormsSubmitElement =
-		TextInputFormsSubmitElement |
-		OptionsFormsSubmitElement |
-		TimezoneOffsetFormsSubmitElement |
-		IdentityFormsSubmitElement |
-		CheckboxFormsSubmitElement |
-		DatetimeFormsSubmitElement |
-		AvailabilityFormsSubmitElement |
-		null
-	export interface TextInputFormsSubmitElement
-	{
-		value: string | null;
-	}
-	export interface OptionsFormsSubmitElement
-	{
-		value: Array <string> | null;
-	}
-	export interface TimezoneOffsetFormsSubmitElement
-	{
-		value: number | null;
-	}
-	export interface IdentityFormsSubmitElement
-	{
-		value: string | null;
-	}
-	export interface CheckboxFormsSubmitElement
-	{
-		value: true | null;
-	}
-	export interface DatetimeFormsSubmitElement
-	{
-		value: number | null;
-	}
-	export interface AvailabilityFormsSubmitElement
-	{
-		value: AvailabilityFormsSubmitElementValue | null;
-	}
-	export interface AvailabilityFormsSubmitElementValue
-	{
-		timezone: string;
-		days: AvailabilityFormsSubmitElementValueDays;
-	}
-	export type AvailabilityFormsSubmitElementValueDays =
-	{
-		/** Array of hour offsets in minutes, in the submitted timezone. */
-		[day: number]: Array <number>;
-	}
 	export interface FormsSubmitVenue
 	{
 		token: string;
-	}
-	export interface FormsSubmissionCreateResult extends Pick <ResponseBody <FormsSubmitResultData>, 'data'> {}
-	export interface FormsSubmitResultData
-	{
-		id: string;
 	}
 
 	// Standard Response
