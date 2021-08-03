@@ -1,7 +1,7 @@
 'use strict';
 
 // Types
-import * as ApiDataForms from '../../../Api/Data/Forms';
+import * as ApiDataForms from '../../../Api/Data/Guilds/Forms';
 import { RequestOptionsWrapper } from '../../../Methods';
 
 // Method
@@ -13,4 +13,4 @@ export interface MethodParameters extends RequestOptionsWrapper, Pick <ApiDataFo
 };
 
 // API
-export { GetRequestBody, GetResponseBody } from '../../../Api/Data/Forms';
+export { GetRequestBody, GetResponseBody } from '../../../Api/Data/Guilds/Forms';
