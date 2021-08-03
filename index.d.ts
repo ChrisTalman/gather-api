@@ -72,6 +72,7 @@ declare module 'gather-api'
 	// Guilds: Forms
 	class GuildsForms extends Resource
 	{
+		public list(parameters: import('./src/Types/Methods/Guilds/Forms/List').MethodParameters): Promise <import('./src/Types/Methods/Guilds/Forms/List').GetResponseBody>;
 		public submissions: GuildsFormsSubmissions;
 	}
 

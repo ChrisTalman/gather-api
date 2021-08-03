@@ -4,6 +4,9 @@
 import { Client } from 'src/Modules/Client';
 import { Resource } from 'src/Modules/Resource';
 
+// Methods
+import { list } from './List';
+
 // Resources
 import { GuildFormSubmissions } from './Submissions';
 
@@ -15,4 +18,5 @@ export class GuildForms extends Resource
 		super({client});
 		this.submissions = new GuildFormSubmissions({client});
 	};
+	public list = list;
 };
