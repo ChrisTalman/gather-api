@@ -244,7 +244,8 @@ declare module 'gather-api'
 	type ApiErrorResourceName =
 		'guild' |
 		'guild_member' |
-		'guild_member_role'
+		'guild_member_role' |
+		'guild_form'
 	;
 	export interface ApiErrorInvalidAction
 	{
