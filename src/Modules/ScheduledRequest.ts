@@ -24,6 +24,10 @@ export class ScheduledRequest <GenericResultJson, GenericResult extends RequestR
 		if (typeof options.accessToken === 'string')
 		{
 			request.auth = `Bearer ${options.accessToken}`;
+		}
+		else if (options.accessToken === false)
+		{
+			delete request.auth;
 		};
 		this.request = request;
 		this.options = options;

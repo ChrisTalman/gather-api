@@ -307,7 +307,7 @@ declare module 'gather-api'
 	// Request Options
 	export interface RequestOptions
 	{
-		accessToken?: string;
+		accessToken?: string | false;
 		useQueue?: boolean;
 	}
 	export interface RequestOptionsWrapper

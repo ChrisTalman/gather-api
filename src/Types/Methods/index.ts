@@ -2,7 +2,7 @@
 
 export interface RequestOptions
 {
-	accessToken?: string;
+	accessToken?: string | false;
 	useQueue?: boolean;
 };
 export interface RequestOptionsWrapper
