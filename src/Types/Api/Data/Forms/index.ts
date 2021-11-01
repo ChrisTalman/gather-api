@@ -18,6 +18,8 @@ export interface Form
 	/** Messages to display to submitter when submission is in different states. */
 	messages?: FormMessages;
 	discordChannels?: DiscordChannels;
+	/** Indicates whether the requester (user or anonymous) is authorised to submit the form. */
+	authorised: boolean;
 };
 export type FormMessages =
 {
