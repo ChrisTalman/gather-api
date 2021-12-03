@@ -212,6 +212,7 @@ declare module 'gather-api'
 	class Games extends Resource
 	{
 		public list(parameters: import('./src/Types/Methods/Games/List').MethodParameters): Promise <import('./src/Types/Methods/Games/List').GetResponseBody>;
+		public get(parameters: import('./src/Types/Methods/Games/Get').MethodParameters): Promise <import('./src/Types/Methods/Games/Get').GetResponseBody>;
 	}
 
 	// Standard Response
