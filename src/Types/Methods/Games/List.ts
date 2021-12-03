@@ -1,7 +1,7 @@
 'use strict';
 
 // Types
-import { Pluck } from 'src/Types/Api/Pluck';
+import { Pluck } from '../../Api/Pluck';
 import * as ApiDataGames from '../../Api/Data/Games';
 import { RequestOptionsWrapper } from '../../Methods';
 

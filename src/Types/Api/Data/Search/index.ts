@@ -1,8 +1,8 @@
 'use strict';
 
 // Types
-import { RequestBody } from 'src/Types/Api/Request';
-import { ResponseBody } from 'src/Types/Api/Response';
+import { RequestBody } from '../../../Api/Request';
+import { ResponseBody } from '../../../Api/Response';
 
 // Data
 import { Filters } from './Filters';
