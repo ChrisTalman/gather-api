@@ -20,7 +20,7 @@ export interface GetParametersPagination
 	limit?: number;
 	sessionId?: string;
 };
-export interface GetResponseBody extends Pick <ResponseBody, 'data'>
+export interface GetResponseBody
 {
 	sessionId: string;
 	guilds: Guilds;
