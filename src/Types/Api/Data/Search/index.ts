@@ -2,7 +2,6 @@
 
 // Types
 import { RequestBody } from '../../../Api/Request';
-import { ResponseBody } from '../../../Api/Response';
 
 // Data
 import { Filters } from './Filters';
