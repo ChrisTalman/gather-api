@@ -2,7 +2,7 @@
 
 // Types
 import { RequestBody } from '../../../Api/Request';
-import { ResponseBody } from 'src/Types/Api/Response';
+import { ResponseBody } from '../../../Api/Response';
 
 // Data
 export interface Games extends Array <Game> {};
