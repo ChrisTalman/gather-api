@@ -9,6 +9,8 @@ import { verifySignature, generateRequestBodySignature } from 'src/Modules/Signa
 import { ScheduledRequest } from './ScheduledRequest';
 import { Guilds } from './Methods/Guilds';
 import { Forms } from './Methods/Forms';
+import { Search } from './Methods/Search';
+import { Games } from './Methods/Games';
 
 // Types
 import { DefinitionDebug } from '@chris-talman/request';
@@ -62,4 +64,6 @@ export class Client
 	};
 	public guilds = new Guilds({client: this});
 	public forms = new Forms({client: this});
+	public search = new Search({client: this});
+	public games = new Games({client: this});
 };

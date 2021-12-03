@@ -27,7 +27,7 @@ export class ScheduledRequest <GenericResultJson, GenericResult extends RequestR
 		}
 		else if (options.accessToken === false)
 		{
-			delete request.auth;
+			request.auth = options.accessToken;
 		};
 		this.request = request;
 		this.options = options;

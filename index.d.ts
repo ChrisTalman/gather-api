@@ -20,6 +20,8 @@ declare module 'gather-api'
 		generateRequestBodySignature({requestBody}: {requestBody: string | object}): string;
 		public readonly guilds: Guilds;
 		public readonly forms: Forms;
+		public readonly search: Search;
+		public readonly games: Games;
 	}
 
 	// Resource
@@ -198,6 +200,18 @@ declare module 'gather-api'
 	export interface FormsSubmitVenue
 	{
 		token: string;
+	}
+
+	// Search
+	class Search extends Resource
+	{
+		public list(parameters: import('./src/Types/Methods/Search/List').MethodParameters): Promise <import('./src/Types/Methods/Search/List').GetResponseBody>;
+	}
+
+	// Games
+	class Games extends Resource
+	{
+		public list(parameters: import('./src/Types/Methods/Games/List').MethodParameters): Promise <import('./src/Types/Methods/Games/List').GetResponseBody>;
 	}
 
 	// Standard Response
