@@ -1,12 +1,12 @@
 'use strict';
 
+// Types
+import * as ApiGuilds from '../Guilds';
+
 export interface Guilds extends Array <Guild> {};
-export interface Guild
+export interface Guild extends ApiGuilds.Guild
 {
-	id: string;
-	name: string;
 	description: string;
-	logo: string;
 	explorer: GuildExplorer;
 	games: Games;
 	platforms: GuildPlatforms;
