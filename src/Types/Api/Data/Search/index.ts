@@ -22,10 +22,6 @@ export interface GetParametersPagination
 };
 export interface GetResponseBody extends Pick <ResponseBody, 'data'>
 {
-	data: GetResponseBodyData;
-};
-export interface GetResponseBodyData
-{
 	sessionId: string;
 	guilds: Guilds;
 };
