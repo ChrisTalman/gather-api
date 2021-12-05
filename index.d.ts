@@ -260,7 +260,8 @@ declare module 'gather-api'
 		'guild' |
 		'guild_member' |
 		'guild_member_role' |
-		'guild_form'
+		'guild_form' |
+		'guild_form_submission'
 	;
 	export interface ApiErrorInvalidAction
 	{
