@@ -15,6 +15,8 @@ export interface Form
 	onboard?: string;
 	decision?: boolean;
 	exclusive?: boolean;
+	/** The identity of the submitter will be hidden from reviewers, and comments disabled. */
+	anonymous?: boolean;
 	/** Messages to display to submitter when submission is in different states. */
 	messages?: FormMessages;
 	discordChannels?: DiscordChannels;

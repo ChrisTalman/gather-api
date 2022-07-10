@@ -16,6 +16,8 @@ export interface Submission
 	revoked?: boolean;
 	cancelled?: number;
 	decided?: number;
+	/** The identity of the submitter will be hidden from reviewers, and comments disabled. */
+	anonymous?: boolean;
 	form: Form;
 	guild: Guild;
 	user: UserIdentity;
