@@ -13,7 +13,7 @@ export interface Form
 	name: string;
 	open?: boolean;
 	onboard?: string;
-	decision?: boolean;
+	type: 'report' | 'application' | 'ticket';
 	exclusive?: boolean;
 	/** The identity of the submitter will be hidden from reviewers, and comments disabled. */
 	anonymous?: boolean;
