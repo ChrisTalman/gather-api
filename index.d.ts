@@ -301,6 +301,7 @@ declare module 'gather-api'
 			'maxOptions' |
 			'invalidState' |
 			'decisionDisallowed' |
+			'locked' |
 			'notExclusive' |
 			'maxLinks' |
 			'maxWebhooks' |
