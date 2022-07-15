@@ -6,7 +6,7 @@ import { Resource } from 'src/Modules/Resource';
 // Types
 import { MethodParameters, PatchRequestBody } from 'src/Types/Methods/Forms/Submissions/Update';
 
-export async function update(this: Resource, {id, formId, elements, state, pluck, options}: MethodParameters)
+export async function update(this: Resource, {id, formId, elements, state, locked, pluck, options}: MethodParameters)
 {
 	const body: PatchRequestBody =
 	{
@@ -15,6 +15,7 @@ export async function update(this: Resource, {id, formId, elements, state, pluck
 	};
 	if (elements) body.data.elements = elements;
 	if (state) body.data.state = state;
+	if (locked !== undefined) body.data.locked = locked;
 	await this._client.scheduleApiRequest <any>
 	(
 		{

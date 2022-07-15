@@ -14,6 +14,7 @@ export interface MethodParameters extends RequestOptionsWrapper, Pick <PatchRequ
 	formId: string;
 	elements?: Elements;
 	state?: FormSubmissions.State;
+	locked?: boolean;
 };
 
 // Request
@@ -25,6 +26,7 @@ export interface PatchRequestBodyData
 {
 	state?: FormSubmissions.State;
 	elements?: Elements;
+	locked?: boolean;
 };
 
 // Response
